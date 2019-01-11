@@ -1,0 +1,76 @@
+/**
+ * Post content styling
+ */
+.single-documentation .post-entry ul,
+.single-documentation .post-entry ol{
+	margin-left:20px;
+	border:none;
+}
+	.single-documentation .post-entry ul li,
+	.single-documentation .post-entry ol li{
+		border:none;
+		margin-bottom:4px;
+	}
+
+.single-documentation .post-entry h2,
+.single-documentation .post-entry h3,
+.single-documentation .post-entry h4,
+.single-documentation .post-entry h5{
+	border-bottom:none;
+}	
+	
+/**
+ * Breadcrumb on single post
+ */
+.idocs-navigation{
+	margin-bottom:10px;	
+}
+
+/**
+ * Plugin navigation widget
+ */
+.widget_idocs{
+	list-style-type:none!important;
+}
+.widget_idocs h3{
+	margin-bottom:10px;
+}
+.widget_idocs li{
+	margin-bottom:4px;
+}
+.widget_idocs li.page_item_has_children{
+	font-weight:bold;
+}
+	.widget_idocs ul.children{
+		margin-left:15px;
+		font-weight:normal;
+		margin-bottom:0px!important;
+	}
+		.widget_idocs ul.children li a{
+			
+		}
+		
+.widget_idocs li.current_documentation_item{
+	
+}	
+
+/**
+ * Single post previous/next post navigation below content
+ */
+.idocs-post-nav{
+	width:100%;
+	clear:both;
+}
+	.idocs-post-nav .one_half{
+		text-align:right;
+	}
+	
+	.idocs-post-nav .one_half.first{
+		text-align:left;
+	}
+		.idocs-post-nav .one_half a{
+			padding:5px 10px;
+			background:#777777;
+			border-radius:7px;
+			color:#EFEFEF;
+		}
