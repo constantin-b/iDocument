@@ -70,11 +70,14 @@ class iDocs_Templates{
 		add_filter('the_content', array( $this, 'table_of_contents' ), 99999, 1 );
 		
 		add_filter('the_content', array( $this, 'related_docs' ), 99998, 1 );
-	}	
-	
+	}
+
 	/**
 	 * Display table of contents on iDocs single posts
+	 *
 	 * @param string $content
+	 *
+	 * @return mixed|string
 	 */
 	public function table_of_contents( $content ){
 		if( !is_singular( idocs_post_type() ) ){
@@ -126,13 +129,22 @@ class iDocs_Templates{
 		
 		return $toc . $content;		
 	}
-	
+
+	/**
+	 * Callback for post content filter that adds related docs after the content is displayed
+	 *
+	 * @param $content
+	 *
+	 * @return string|void
+	 */
 	public function related_docs( $content ){
+		if( !is_singular( idocs_post_type() ) ){
+			return;
+		}
+
 		global $post;
 		$related = get_post_meta( $post->ID, '__related_docs', true );
-		
-		
-		
+
 		if( $related ){
 			$posts = get_posts(
 				array(
