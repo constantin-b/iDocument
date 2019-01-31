@@ -88,7 +88,7 @@ class iDocs_Shortcodes{
 		// term error, halt script
 		if( is_wp_error($term) || !$term ){
 			if( current_user_can( 'manage_options' ) ){
-				return sprintf(__('iDocs shortcode error: taxonomy for id %s does not exist.'), $term_id);
+				return sprintf( __( 'iDocs shortcode error: taxonomy for id %s does not exist.' ), $term );
 			}
 			return;
 		}
