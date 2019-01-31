@@ -139,7 +139,7 @@ class iDocs_Templates{
 	 */
 	public function related_docs( $content ){
 		if( !is_singular( idocs_post_type() ) ){
-			return;
+			return $content;
 		}
 
 		global $post;
