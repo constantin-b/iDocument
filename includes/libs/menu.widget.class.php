@@ -38,7 +38,7 @@ class IDOCS_Menu_Widget extends WP_Widget{
 		}
 		
 		global $post;		
-		extract($args);
+		extract( $args );
 		
 		$terms = wp_get_post_terms( $post->ID, idocs_taxonomy() );
 		
@@ -120,11 +120,24 @@ class IDOCS_Menu_Widget extends WP_Widget{
 			));
 			remove_filter('page_css_class', 'idocs_page_class_walker', 999);
 		echo '</ul>';
-		
-		$children = get_term_children( $term_id  , idocs_taxonomy());
+
+		// get parent category children
+		$args = array(
+			'taxonomy' => idocs_taxonomy(),
+			'orderby' => 'meta_value_num',
+			'order' => 'ASC',
+			'parent' =>  $term_id,
+			'meta_query' => array(
+                array(
+                    'key' => idocs_tax_meta_menu_order(),
+                    'type' => 'NUMERIC'
+                )
+			)
+		);
+		$children = get_terms( $args );//get_term_children( $term_id  , idocs_taxonomy());
+
 		if( !is_wp_error( $children ) ){
-			foreach( $children as $child ){
-				$term = get_term( $child, idocs_taxonomy() );
+			foreach( $children as $term ){
 				if( $term->parent != $term_id ){
 					continue;
 				}

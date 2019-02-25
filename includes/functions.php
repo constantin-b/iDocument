@@ -153,6 +153,15 @@ function idocs_taxonomy(){
 }
 
 /**
+ * Returns taxonomy meta field for ordering menu
+ * @return string
+ */
+function idocs_tax_meta_menu_order(){
+	global $IDOCS;
+	return $IDOCS->get_tax_meta_order();
+}
+
+/**
  * Returns a list of most recent documents written
  * @param int $tag_id - category to retrieve for
  * @param int $limit - number of posts
